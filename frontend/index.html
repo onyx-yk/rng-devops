@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Random Number Generator</title></head>
+<body>
+  <h1>Random Number Generator</h1>
+  <button onclick="getNumber()">Generate</button>
+  <p id="result"></p>
+
+  <script>
+    async function getNumber() {
+      try {
+        const res = await fetch('/api/random');   // <-- key change
+        const data = await res.json();
+        document.getElementById('result').innerText = 'Random Number: ' + data.number;
+      } catch (e) {
+        document.getElementById('result').innerText = 'Error fetching number';
+      }
+    }
+  </script>
+</body>
+</html>
