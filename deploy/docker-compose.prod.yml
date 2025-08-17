@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  backend:
+    image: onyxyk/rng-backend:latest
+    container_name: rng-backend
+    restart: always
+
+  frontend:
+    image: onyxyk/rng-frontend:latest
+    container_name: rng-frontend
+    ports:
+      - "80:80"
+    restart: always
