@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual env
+rng/Lib/
+rng/Include/
+rng/Scripts/
+rng/share/
+rng/pyvenv.cfg
+
+# Site-packages
+rng/Lib/site-packages/
