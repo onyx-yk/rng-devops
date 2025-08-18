@@ -10,21 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build backend image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/rng-backend:latest ./backend
-          docker push ${{ secrets.DOCKER_USERNAME }}/rng-backend:latest
+      # Build backend
+      - name: Build and push backend
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: onyxyk/rng-backend:latest
 
-      - name: Build frontend image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/rng-frontend:latest ./frontend
-          docker push ${{ secrets.DOCKER_USERNAME }}/rng-frontend:latest
+      # Build frontend
+      - name: Build and push frontend
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: onyxyk/rng-frontend:latest
