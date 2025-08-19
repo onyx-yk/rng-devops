@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
 COPY index.html /usr/share/nginx/html/index.html
-COPY deploy/nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
