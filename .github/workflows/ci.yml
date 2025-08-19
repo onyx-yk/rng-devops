@@ -28,11 +28,10 @@ jobs:
           push: true
           tags: onyxyk/rng-backend:latest
 
-      # Build frontend
       - name: Build and push frontend
         uses: docker/build-push-action@v4
         with:
-          context: ./frontend
+          context: .
           file: ./frontend/Dockerfile
           push: true
           tags: onyxyk/rng-frontend:latest
