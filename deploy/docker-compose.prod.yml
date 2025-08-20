@@ -4,6 +4,8 @@ services:
   backend:
     image: onyxyk/rng-backend:latest
     container_name: rng-backend
+    ports:
+      - "5000:5000" 
     restart: always
 
   frontend:
