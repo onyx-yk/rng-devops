@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 current_number = random.randint(1, 100)
 
-@app.route('/random')
+@app.route('/api/random')
 def random_number():
     global current_number
     if request.args.get('refresh') == 'true':
