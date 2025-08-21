@@ -2,14 +2,20 @@ This is a simple program I've made that is used to demonstrate DevOps practices.
 
 Tech Stack:
 -Flask in Python for the RNG Generation.
+
 -HTML/JS is used for Frontend for the webpage using NGINX as the api and fetching the number from backend.
+
 -Docker and Docker Compose for containerization and deployment.
+
 -CI/CD with Github Actions that create an image in Docker Compose.
 
 Features:
 -Random number generated from Backend API and frontend fetches directly from backend.
+
 -Frontend and backend have their separate container in docker 
+
 -Nginx used are reverse proxy for API requests.
+
 -Github actions used for automated building and testing. 
 
 How to Use:
